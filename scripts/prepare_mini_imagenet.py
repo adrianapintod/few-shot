@@ -13,6 +13,7 @@ import numpy as np
 import shutil
 import os
 
+import config
 from config import DATA_PATH
 from few_shot.utils import mkdir, rmdir
 
