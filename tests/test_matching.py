@@ -33,7 +33,8 @@ class TestMatchingNets(unittest.TestCase):
         distances = pairwise_distances(queries, support, 'cosine')
 
         # Calculate "attention" as softmax over distances
-        attention = (-distances).softmax(dim=1).cuda()
+        # attention = (-distances).softmax(dim=1).cuda()
+        attention = (-distances).softmax(dim=1)
 
         y_pred = matching_net_predictions(attention, n, k, q)
 

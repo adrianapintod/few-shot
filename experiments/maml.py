@@ -16,9 +16,9 @@ from config import PATH
 
 
 setup_dirs()
-assert torch.cuda.is_available()
-device = torch.device('cuda')
-torch.backends.cudnn.benchmark = True
+# assert torch.cuda.is_available()
+device = torch.device('cpu')
+# torch.backends.cudnn.benchmark = True
 
 
 ##############
@@ -95,7 +95,8 @@ def prepare_meta_batch(n, k, q, meta_batch_size):
         # Move to device
         x = x.double().to(device)
         # Create label
-        y = create_nshot_task_label(k, q).cuda().repeat(meta_batch_size)
+        # y = create_nshot_task_label(k, q).cuda().repeat(meta_batch_size)
+        y = create_nshot_task_label(k, q).repeat(meta_batch_size)
         return x, y
 
     return prepare_meta_batch_

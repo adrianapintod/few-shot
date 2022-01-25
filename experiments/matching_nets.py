@@ -15,9 +15,9 @@ from config import PATH
 
 
 setup_dirs()
-assert torch.cuda.is_available()
-device = torch.device('cuda')
-torch.backends.cudnn.benchmark = True
+# assert torch.cuda.is_available()
+device = torch.device('cpu')
+# torch.backends.cudnn.benchmark = True
 
 
 ##############
@@ -92,7 +92,8 @@ evaluation_taskloader = DataLoader(
 ############
 print(f'Training Matching Network on {args.dataset}...')
 optimiser = Adam(model.parameters(), lr=1e-3)
-loss_fn = torch.nn.NLLLoss().cuda()
+# loss_fn = torch.nn.NLLLoss().cuda()
+loss_fn = torch.nn.NLLLoss()
 
 
 callbacks = [

@@ -4,7 +4,7 @@ from xml.dom import minicompat
 
 PATH = os.path.dirname(os.path.realpath(__file__))
 
-DATA_PATH = '/home/adripinto/oskarknagg-implementation/few-shot/data'
+DATA_PATH = '/home/rsantos/projects/modchis/few-shot/data'
 
 EPSILON = 1e-8
 

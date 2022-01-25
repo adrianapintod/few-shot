@@ -227,8 +227,10 @@ class AttentionLSTM(nn.Module):
         batch_size = queries.shape[0]
         embedding_dim = queries.shape[1]
 
-        h_hat = torch.zeros_like(queries).cuda().double()
-        c = torch.zeros(batch_size, embedding_dim).cuda().double()
+        # h_hat = torch.zeros_like(queries).cuda().double()
+        h_hat = torch.zeros_like(queries).double()
+        # c = torch.zeros(batch_size, embedding_dim).cuda().double()
+        c = torch.zeros(batch_size, embedding_dim).double()
 
         for k in range(self.unrolling_steps):
             # Calculate hidden state cf. equation (4) of appendix A.2
